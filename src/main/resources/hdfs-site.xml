@@ -108,6 +108,11 @@
 <name>dfs.namenode.rpc.port</name>
 <value>25000</value>
 </property>
+    <!--新添加-->
+<property>
+    <name>zookeeper.session.timeout</name>
+    <value>120000</value>
+</property>
 <property>
 <name>dfs.datanode.data.dir.perm</name>
 <value>700</value>

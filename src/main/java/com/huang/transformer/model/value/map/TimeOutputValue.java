@@ -8,8 +8,9 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 public class TimeOutputValue extends BaseStatsValueWritable {
-    private String id;//id
-    private long time;//时间戳
+    private String id; // id
+    private long time; // 时间戳
+
     public String getId() {
         return id;
     }

@@ -2,6 +2,8 @@ package com.huang.transformer.service;
 
 import com.huang.transformer.model.dim.base.BaseDimension;
 
+import java.io.IOException;
+
 /**
  * describe: 提供专门操作dimension表的接口
  * @creat_user: c_huangzhijun
@@ -16,5 +18,5 @@ public interface IDimensionConverter {
      * @param dimension
      * @return
      */
-    public int getDimensionIdByValue(BaseDimension dimension);
+    public int getDimensionIdByValue(BaseDimension dimension) throws IOException;
 }

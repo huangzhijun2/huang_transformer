@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+      <!--<name>mysql.batch.number</name>-->
+      <name>oracle.batch.number</name>
+      <value>500</value>
+    </property>
+
+	<property>
+	  <name>oracle.chnldb.driver</name>
+	  <!--<name>mysql.report.driver</name>-->
+	  <value>oracle.jdbc.driver.OracleDriver</value>
+	  <!--<value>com.mysql.jdbc.Driver</value>-->
+	</property>
+
+	<property>
+	  <!--<name>mysql.report.url</name>-->
+	  <name>oracle.chnldb.url</name>
+	  <!--<value>jdbc:mysql://localhost:3306/report?useUnicode=true&amp;characterEncoding=utf8</value>-->
+	  <value>jdbc:oracle:thin:@10.182.52.9:1521/chnldb</value>
+	</property>
+
+	<property>
+	  <!--<name>mysql.report.username</name>-->
+	  <name>oracle.chnldb.username</name>
+	  <!--<value>root</value>-->
+	  <value>channel</value>
+	</property>
+
+	<property>
+	  <!--<name>mysql.report.password</name>-->
+	  <name>oracle.chnldb.password</name>
+	  <!--<value>123456</value>-->
+	  <value>channel</value>
+	</property>
+</configuration>

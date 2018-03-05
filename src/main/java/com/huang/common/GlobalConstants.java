@@ -35,12 +35,14 @@ public class GlobalConstants {
     /**
      * 指定连接表配置为report
      */
-    public static final String WAREHOUSE_OF_REPORT = "report";
+//    public static final String WAREHOUSE_OF_REPORT = "report";
+    public static final String WAREHOUSE_OF_REPORT = "chnldb";
 
     /**
      * 批量执行的key
      */
-    public static final String JDBC_BATCH_NUMBER = "mysql.batch.number";
+//    public static final String JDBC_BATCH_NUMBER = "mysql.batch.number";
+    public static final String JDBC_BATCH_NUMBER = "oracle.batch.number";
 
     /**
      * 默认批量大小
@@ -50,20 +52,24 @@ public class GlobalConstants {
     /**
      * driver 名称
      */
-    public static final String JDBC_DRIVER = "mysql.%s.driver";
+//    public static final String JDBC_DRIVER = "mysql.%s.driver";
+    public static final String JDBC_DRIVER = "oracle.%s.driver";
 
     /**
      * JDBC URL
      */
-    public static final String JDBC_URL = "mysql.%s.url";
+//    public static final String JDBC_URL = "mysql.%s.url";
+    public static final String JDBC_URL = "oracle.%s.url";
 
     /**
      * username名称
      */
-    public static final String JDBC_USERNAME = "mysql.%s.username";
+    public static final String JDBC_USERNAME = "oracle.%s.username";
+//    public static final String JDBC_USERNAME = "mysql.%s.username";
 
     /**
      * password名称
      */
-    public static final String JDBC_PASSWORD = "mysql.%s.password";
+//    public static final String JDBC_PASSWORD = "mysql.%s.password";
+    public static final String JDBC_PASSWORD = "oracle.%s.password";
 }

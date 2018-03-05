@@ -77,7 +77,6 @@ public class DateDimension extends BaseDimension{
         throw new RuntimeException("不支持所要求的dateEnum类型来获取datedimension对象" + type);
     }
 
-
     public DateDimension() {
         super();
     }
@@ -92,7 +91,6 @@ public class DateDimension extends BaseDimension{
         this.type = type;
     }
 
-
     public DateDimension(int year, int season, int month, int week, int day, String type, Date calendar) {
         this(year, season, month, week, day, type);
         this.calendar = calendar;
@@ -102,7 +100,6 @@ public class DateDimension extends BaseDimension{
         this(year, season, month, week, day, type, calendar);
         this.id = id;
     }
-
 
     public int getId() {
         return id;

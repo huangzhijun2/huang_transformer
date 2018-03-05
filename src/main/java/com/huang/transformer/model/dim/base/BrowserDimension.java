@@ -1,6 +1,4 @@
 package com.huang.transformer.model.dim.base;
-
-
 import com.huang.common.GlobalConstants;
 import org.apache.commons.lang.StringUtils;
 
@@ -17,46 +15,18 @@ import java.util.List;
  * creat_time: 10:35
  **/
 public class BrowserDimension extends BaseDimension {
-    private int id;//id
-    private String browserName;//名称
-    private String browserVersion;//版本
+    private int id; // id
+    private String browserName; // 名称
+    private String browserVersion; // 版本
 
-    public BrowserDimension(){
+    public BrowserDimension() {
         super();
     }
-    public BrowserDimension(String browserName,String browserVersion){
+
+    public BrowserDimension(String browserName, String browserVersion) {
         super();
         this.browserName = browserName;
         this.browserVersion = browserVersion;
-
-    }
-
-
-    @Override
-    public int compareTo(BaseDimension o) {
-        if (this == o) {
-            return 0;
-        }
-
-        BrowserDimension other = (BrowserDimension) o;
-        int tmp = Integer.compare(this.id, other.id);
-        if (tmp != 0) {
-            return tmp;
-        }
-        tmp = this.browserName.compareTo(other.browserName);
-        if (tmp != 0) {
-            return tmp;
-        }
-        tmp = this.browserVersion.compareTo(other.browserVersion);
-        return tmp;
-    }
-
-    @Override
-    public void write(DataOutput out) throws IOException {
-        out.writeInt(this.id);
-        out.writeUTF(this.browserName);
-        out.writeUTF(this.browserVersion);
-
     }
 
     public void clean() {
@@ -65,42 +35,35 @@ public class BrowserDimension extends BaseDimension {
         this.browserVersion = "";
     }
 
-    public static BrowserDimension newInstance(String browserName, String browserVersion){
+    public static BrowserDimension newInstance(String browserName, String browserVersion) {
         BrowserDimension browserDimension = new BrowserDimension();
         browserDimension.browserName = browserName;
         browserDimension.browserVersion = browserVersion;
         return browserDimension;
     }
-    public static List<BrowserDimension> buildList(String browserName, String browserVersion){
+
+    /**
+     * 构建多个浏览器维度信息对象集合
+     *
+     * @param browserName
+     * @param browserVersion
+     * @return
+     */
+    public static List<BrowserDimension> buildList(String browserName, String browserVersion) {
         List<BrowserDimension> list = new ArrayList<BrowserDimension>();
-        if(StringUtils.isBlank(browserName)){
-            //浏览器名称为空，那么设置为unknow
+        if (StringUtils.isBlank(browserName)) {
+            // 浏览器名称为空，那么设置为unknown
             browserName = GlobalConstants.DEFAULT_VALUE;
+            browserVersion = GlobalConstants.DEFAULT_VALUE;
+        }
+        if (StringUtils.isEmpty(browserVersion)) {
             browserVersion = GlobalConstants.DEFAULT_VALUE;
         }
         // list.add(BrowserDimension.newInstance(GlobalConstants.VALUE_OF_ALL,
         // GlobalConstants.VALUE_OF_ALL));
         list.add(BrowserDimension.newInstance(browserName, GlobalConstants.VALUE_OF_ALL));
-        list.add(BrowserDimension.newInstance(browserName,browserVersion));
+        list.add(BrowserDimension.newInstance(browserName, browserVersion));
         return list;
-    }
-
-    @Override
-    public void readFields(DataInput in) throws IOException {
-        this.id = in.readInt();
-        this.browserName = in.readUTF();
-        this.browserVersion = in.readUTF();
-
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((browserName == null) ? 0 : browserName.hashCode());
-        result = prime * result + ((browserVersion == null) ? 0 : browserVersion.hashCode());
-        result = prime * result + id;
-        return result;
     }
 
     public int getId() {
@@ -125,6 +88,49 @@ public class BrowserDimension extends BaseDimension {
 
     public void setBrowserVersion(String browserVersion) {
         this.browserVersion = browserVersion;
+    }
+
+    @Override
+    public void write(DataOutput out) throws IOException {
+        out.writeInt(this.id);
+        out.writeUTF(this.browserName);
+        out.writeUTF(this.browserVersion);
+    }
+
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        this.id = in.readInt();
+        this.browserName = in.readUTF();
+        this.browserVersion = in.readUTF();
+    }
+
+    @Override
+    public int compareTo(BaseDimension o) {
+        if (this == o) {
+            return 0;
+        }
+
+        BrowserDimension other = (BrowserDimension) o;
+        int tmp = Integer.compare(this.id, other.id);
+        if (tmp != 0) {
+            return tmp;
+        }
+        tmp = this.browserName.compareTo(other.browserName);
+        if (tmp != 0) {
+            return tmp;
+        }
+        tmp = this.browserVersion.compareTo(other.browserVersion);
+        return tmp;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((browserName == null) ? 0 : browserName.hashCode());
+        result = prime * result + ((browserVersion == null) ? 0 : browserVersion.hashCode());
+        result = prime * result + id;
+        return result;
     }
 
     @Override
